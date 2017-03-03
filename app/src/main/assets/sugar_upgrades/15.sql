@@ -1,0 +1,13 @@
+drop table PRODUCT;
+drop table PRODUCT_DEFINITION;
+drop table CATEGORY;
+CREATE TABLE PRODUCT (ID integer PRIMARY KEY, PRODUCT_DEFINITION integer NOT NULL, QUANTITY integer, QUANTITY_UNIT text, PRICE real, PRICE_UNIT text, STATE integer NOT NULL);
+CREATE TABLE PRODUCT_DEFINITION (ID integer PRIMARY KEY, CATEGORY integer NOT NULL, NAME text NOT NULL);
+CREATE TABLE CATEGORY (ID integer PRIMARY KEY, NAME text NOT NULL UNIQUE);
+insert into CATEGORY (NAME) VALUES ('Крупы');
+insert into CATEGORY (NAME) VALUES ('Мясо');
+insert into CATEGORY (NAME) VALUES ('Молочное');
+insert into CATEGORY (NAME) VALUES ('Рыба');
+insert into CATEGORY (NAME) VALUES ('Фрукты и овощи');
+insert into CATEGORY (NAME) VALUES ('Выпечка');
+insert into CATEGORY (NAME) VALUES ('Чай и кофе');
