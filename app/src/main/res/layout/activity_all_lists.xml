@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:navigationIcon="@android:drawable/ic_menu_sort_by_size"
+            app:navigationIcon="?android:attr/actionModeCloseDrawable"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="Списки продуктов" />
 

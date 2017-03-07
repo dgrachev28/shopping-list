@@ -7,4 +7,7 @@ import java.util.List;
 public interface ProductsListPresenter {
 
     List<List<Product>> getProductsGroupByCategories();
+
+    void onProductBlockClick(Product product);
+
 }

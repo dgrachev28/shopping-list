@@ -6,6 +6,8 @@ import com.company.buylist.BuyListMainActivity;
 import com.company.buylist.model.Product;
 import com.company.buylist.service.CategoryService;
 import com.company.buylist.service.CategoryServiceImpl;
+import com.company.buylist.service.ProductService;
+import com.company.buylist.service.ProductServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +16,15 @@ import java.util.Map;
 public class ProductsListPresenterImpl implements ProductsListPresenter {
 
     //TODO заменить на интерфейс
-//    private BuyListMainActivity buyListMainActivity;
+    private BuyListMainActivity buyListMainActivity;
 
     private CategoryService categoryService;
+    private ProductService productService;
 
-    public ProductsListPresenterImpl() {
-//        this.buyListMainActivity = buyListMainActivity;
+    public ProductsListPresenterImpl(BuyListMainActivity buyListMainActivity) {
+        this.buyListMainActivity = buyListMainActivity;
         categoryService = new CategoryServiceImpl();
+        productService = new ProductServiceImpl();
     }
 
     public List<List<Product>> getProductsGroupByCategories() {
@@ -48,6 +52,13 @@ public class ProductsListPresenterImpl implements ProductsListPresenter {
         }
         return categoryGroups;
     }
+
+    @Override
+    public void onProductBlockClick(Product product) {
+        productService.switchStateAndSave(product);
+        buyListMainActivity.updateProductList(getProductsGroupByCategories());
+    }
+
 
     private Map<Integer, List<Product>> splitBoughtProducts(List<Product> products) {
         return Stream.of(products).collect(Collectors.groupingBy(Product::getState));

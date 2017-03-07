@@ -16,6 +16,7 @@ public class AllListsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_lists);
         Toolbar toolbar = (Toolbar) findViewById(R.id.allListsToolbar);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(v -> finish());
 
 //        initAddProductButton();
     }
@@ -34,7 +35,6 @@ public class AllListsActivity extends AppCompatActivity {
         super.onStart();
 
 //        List<List<Product>> productsGroupByCategories = productsListPresenter.getProductsGroupByCategories();
-//        ProductCategoryAdapter productCategoryAdapter = new ProductCategoryAdapter(this, R.id.categoryLinearLayout, productsGroupByCategories);
 
 //        ListView listView = (ListView) findViewById(R.id.productsListView);
 //        listView.setAdapter(productCategoryAdapter);

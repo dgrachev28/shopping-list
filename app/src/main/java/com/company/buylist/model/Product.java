@@ -10,6 +10,7 @@ public class Product extends SugarRecord {
     public static final int DELETED_STATE = 2;
 
     private ProductDefinition productDefinition;
+    private ProductList productList;
     private int quantity;
     private String quantityUnit;
     private Double price;
@@ -23,6 +24,14 @@ public class Product extends SugarRecord {
 
     public void setProductDefinition(ProductDefinition productDefinition) {
         this.productDefinition = productDefinition;
+    }
+
+    public ProductList getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ProductList productList) {
+        this.productList = productList;
     }
 
     public int getQuantity() {
